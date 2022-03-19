@@ -69,3 +69,13 @@ I want search a note.
 **PostConditions**:
 
 - The List should display all matched notes
+
+
+## TODO 
+
+### FrontEnd
+
+[ ] Create Routes Structure
+[ ] Create Component for creating note.
+[ ] Create Note Card
+[ ] Create Searcher Component
