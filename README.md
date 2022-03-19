@@ -20,6 +20,8 @@ As a user I want to save my reading notes in an application, so that I can organ
 
 ### Histories
 
+---
+
 #### Create Note History
 
 **As a User**:
@@ -35,6 +37,8 @@ I want to create a book note, where I can save the note, page number, date, chap
 
 - The created note must be listed once was created.
 
+---
+
 #### Edit Note History
 
 **As a User**:
@@ -49,6 +53,8 @@ I want to edit a created not.
 **PostConditions**:
 
 - The Listed note must change.
+
+---
 
 #### Search Note
 
