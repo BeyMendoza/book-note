@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { withTheme } from './../../core/middlewares/withTheme';
+import { withTheme } from './../../lib/core/middlewares/withTheme';
 
 const StyledContainer = styled.div(({ mq }) => ({
   margin: 'auto',

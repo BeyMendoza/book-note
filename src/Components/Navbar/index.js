@@ -1,4 +1,4 @@
-import { Card, Flexbox } from '../../core/Components';
+import { Card, Flexbox } from '../../lib/core/Components';
 
 export const Navbar = ({ children, ...props }) => {
   return (

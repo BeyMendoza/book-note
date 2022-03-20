@@ -1,11 +1,11 @@
-import { Card, Flexbox, Text } from './core';
+import { Card, Flexbox, Text } from './lib/core';
 import { Navbar } from './Components';
-import { useTheme } from './core/hooks/useTheme';
+import { useTheme } from './lib/core/hooks/useTheme';
 import { Container } from './Components/Container';
-import { useBreakPoints } from './core/hooks/useBreakPoints';
+import { useBreakPoints } from './lib/core/hooks/useBreakPoints';
 
 import styled from '@emotion/styled';
-import { fade } from './core/utils/fade';
+import { fade } from './lib/core/utils/fade';
 
 import { useState } from 'react';
 import {
@@ -23,7 +23,7 @@ import {
 } from 'react-icons/io5';
 
 import './style.scss';
-import { withTheme } from './core/middlewares/withTheme';
+import { withTheme } from './lib/core/middlewares/withTheme';
 import { WriteNodeEditor } from './Components/WriteNodeEditor';
 
 const StyledButton = styled.button`
