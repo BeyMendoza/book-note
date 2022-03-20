@@ -132,6 +132,7 @@ const grey = {
 };
 
 export const getLightPalette = (lightTone = 300, mainTone = 500, darkTone = 800) => ({
+  mode: 'light',
   common,
   grey,
   background: {
@@ -172,6 +173,7 @@ export const getLightPalette = (lightTone = 300, mainTone = 500, darkTone = 800)
 });
 
 export const getDarkPalette = (lightTone = 300, mainTone = 500, darkTone = 800) => ({
+  mode: 'dark',
   common,
   grey,
   background: {

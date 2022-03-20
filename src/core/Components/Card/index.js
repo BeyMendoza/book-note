@@ -4,9 +4,12 @@ import { useDynamicStyled } from '../../hooks/useDynamicStyled';
 
 const StyledCard = styled.div`
   padding: 1rem;
-  border-radius: 6px;
+  border-radius: ${props => (props.theme.screen === 'xs' ? '0px' : '6px')};
   border: ${props => (props.variant === 'outlined' ? '1px solid' : 'unset')};
   background-color: ${props => (props.bg ? props.bg : props.theme.palette.background.paper)};
+  border-left: ${props => (props.theme.screen === 'xs' ? 'none' : props.variant === 'outlined' ? '1px solid' : 'none')};
+  border-right: ${props =>
+    props.theme.screen === 'xs' ? 'none' : props.variant === 'outlined' ? '1px solid' : 'none'};
   border-color: ${props =>
     props.variant === 'outlined' ? (props.borderColor ? props.borderColor : props.theme.palette.divider) : 'unset'};
 `;

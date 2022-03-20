@@ -1,6 +1,8 @@
-import { useTheme } from "../hooks/useTheme";
+import { useTheme } from '../hooks/useTheme';
+import { useBreakPoints } from '../hooks/useBreakPoints';
 
-export const withTheme = (Component) => (props) => {
+export const withTheme = Component => props => {
   const { theme } = useTheme();
-  return <Component {...props} theme={theme} />;
+  const { mediaQueries, screen } = useBreakPoints();
+  return <Component {...props} theme={{ ...theme, mediaQueries, screen }} />;
 };
