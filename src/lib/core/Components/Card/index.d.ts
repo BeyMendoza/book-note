@@ -1,4 +1,3 @@
-import React from 'react';
 import { ClassThemeCallback, Color, StyleThemeCallback } from '../../theme';
 
 interface CardProps {

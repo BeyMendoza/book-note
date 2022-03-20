@@ -10,10 +10,10 @@ export default () => {
       <Router>
         <Routes>
           <Route path="/" element={<Home />}>
-            {PAGE_ROUTES.map((route, key) => {
-              const { exact, Element, path } = route;
-              return <Route key={key} exact={exact} path={path} element={<Element />} />;
+            {PAGE_ROUTES.map(({ Element, ...rest }, key) => {
+              return <Route key={key} {...rest} element={<Element />} />;
             })}
+            <Route path="*" element={<h1>Page Not Found</h1>} />
           </Route>
         </Routes>
       </Router>
