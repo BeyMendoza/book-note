@@ -1,1 +1,1 @@
-export * from './BookChapterNotes';
+export * from './pages.routes';

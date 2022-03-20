@@ -1,17 +1,22 @@
+import Home from './pages/Home';
 import { Card } from './lib/core';
-import { Navbar } from './Components';
-import { BookChapterNotes } from './pages';
-import { Container } from './Components/Container';
+import { PAGE_ROUTES } from './pages';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './style.scss';
 
 export default () => {
   return (
     <Card style={{ borderRadius: 0, minHeight: '100vh', padding: 0 }} bg="background.default">
-      <Navbar />
-      <br />
-      <Container style={{ padding: '1rem' }}>
-        <BookChapterNotes />
-      </Container>
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />}>
+            {PAGE_ROUTES.map((route, key) => {
+              const { exact, Element, path } = route;
+              return <Route key={key} exact={exact} path={path} element={<Element />} />;
+            })}
+          </Route>
+        </Routes>
+      </Router>
     </Card>
   );
 };

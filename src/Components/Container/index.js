@@ -21,5 +21,9 @@ const StyledContainer = styled.div(({ mq }) => ({
 }));
 
 export const Container = withTheme(({ children, theme, ...props }) => {
-  return <StyledContainer mq={theme.mediaQueries}>{children}</StyledContainer>;
+  return (
+    <StyledContainer mq={theme.mediaQueries} {...props}>
+      {children}
+    </StyledContainer>
+  );
 });

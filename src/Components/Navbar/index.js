@@ -5,7 +5,7 @@ import { useTheme } from '../../lib/core/hooks/useTheme';
 import { IoSunnyOutline, IoMoonOutline } from 'react-icons/io5';
 import { withTheme } from '../../lib/core/middlewares/withTheme';
 
-export const Navbar = withTheme(({ theme }) => {
+export const Navbar = withTheme(({ theme, title }) => {
   const { switchMode } = useTheme();
 
   return (
@@ -14,7 +14,7 @@ export const Navbar = withTheme(({ theme }) => {
         Title
       </Text>
       <Text variant="body2" style={{ margin: 0 }}>
-        Screen Device:
+        {title}
       </Text>
       <IconButton onClick={() => switchMode()}>
         {theme.palette.mode === 'dark' ? <IoSunnyOutline size={24} /> : <IoMoonOutline size={24} />}
