@@ -54,6 +54,7 @@ module.exports = (env, { mode }) => {
       open: true,
       liveReload: true,
       compress: true,
+      historyApiFallback: true,
       port: 3000,
     },
   };

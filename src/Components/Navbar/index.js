@@ -1,18 +1,24 @@
-import { Card, Flexbox } from '../../lib/core/Components';
+import { Text } from '../../lib/core';
+import { IconButton } from '../IconButton';
+import { NavbarContainer } from '../NavbarContainer';
+import { useTheme } from '../../lib/core/hooks/useTheme';
+import { IoSunnyOutline, IoMoonOutline } from 'react-icons/io5';
+import { withTheme } from '../../lib/core/middlewares/withTheme';
 
-export const Navbar = ({ children, ...props }) => {
+export const Navbar = withTheme(({ theme }) => {
+  const { switchMode } = useTheme();
+
   return (
-    <Card
-      style={theme => ({
-        borderRadius: 0,
-        width: '100%',
-        padding: '1rem',
-        position: 'sticky',
-        top: 0,
-        borderBottom: `1px solid ${theme.palette.divider}`,
-      })}
-    >
-      <Flexbox justifyContent="space-between">{children}</Flexbox>
-    </Card>
+    <NavbarContainer>
+      <Text variant="body2" color="primary.main" style={{ margin: 0 }}>
+        Title
+      </Text>
+      <Text variant="body2" style={{ margin: 0 }}>
+        Screen Device:
+      </Text>
+      <IconButton onClick={() => switchMode()}>
+        {theme.palette.mode === 'dark' ? <IoSunnyOutline size={24} /> : <IoMoonOutline size={24} />}
+      </IconButton>
+    </NavbarContainer>
   );
-};
+});

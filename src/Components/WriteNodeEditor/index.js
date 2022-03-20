@@ -18,6 +18,7 @@ import {
   IoLogoGithub,
   IoMenuSharp,
   IoServerOutline,
+  IoSend,
 } from 'react-icons/io5';
 import { createNote } from '../../core/Note';
 import { useNotes } from '../../core/contexts/NotesContext';
@@ -29,9 +30,11 @@ export const WriteNodeEditor = withTheme(({ theme }) => {
 
   return (
     <Card
+      p={0}
       variant="outlined"
       borderColor="divider"
       className={() => `
+          padding: 0px !important;
           &:hover {
             border-color: ${theme.palette.primary.main};
           }
@@ -55,7 +58,7 @@ export const WriteNodeEditor = withTheme(({ theme }) => {
         onChange={text => setHtml(text)}
       />
 
-      <Flexbox pl={7} justifyContent="flex-end">
+      <Flexbox p={7} justifyContent="flex-end">
         <Button
           onClick={() => {
             const newNote = createNote({
@@ -64,11 +67,12 @@ export const WriteNodeEditor = withTheme(({ theme }) => {
               chapterName: 'text c',
               content: html,
             });
-            console.log(newNote);
             addNote(newNote);
+            console.log(newNote);
+            setHtml('');
           }}
         >
-          <IoSendOutline size={22} color={theme.palette.text.primary} />
+          <IoSend size={22} color={theme.palette.text.primary} />
         </Button>
       </Flexbox>
     </Card>
