@@ -1,7 +1,7 @@
 import _ from 'lodash';
 import React from 'react';
 import styled from '@emotion/styled';
-import { withTheme } from '../../utils/withTheme';
+import { withTheme } from '../../middlewares/withTheme';
 import { useDynamicStyled } from './../../hooks/useDynamicStyled';
 
 export const Text = withTheme(({ children, variant = 'h5', theme, ...props }) => {

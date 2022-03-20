@@ -1,5 +1,5 @@
 import styled from '@emotion/styled';
-import { withTheme } from '../../utils/withTheme';
+import { withTheme } from '../../middlewares/withTheme';
 import { useDynamicStyled } from '../../hooks/useDynamicStyled';
 
 const StyledCard = styled.div`

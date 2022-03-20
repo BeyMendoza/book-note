@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 
-type Color =
+export type Color =
   | 'text.primary'
   | 'text.secondary'
   | 'text.disabled'
