@@ -19,9 +19,13 @@ import {
   IoMenuSharp,
   IoServerOutline,
 } from 'react-icons/io5';
+import { createNote } from '../../core/Note';
+import { useNotes } from '../../core/contexts/NotesContext';
 
 export const WriteNodeEditor = withTheme(({ theme }) => {
   const [html, setHtml] = useState("<div contenteditable='false'></div>");
+
+  const { addNote } = useNotes();
 
   return (
     <Card
@@ -52,7 +56,18 @@ export const WriteNodeEditor = withTheme(({ theme }) => {
       />
 
       <Flexbox pl={7} justifyContent="flex-end">
-        <Button onClick={() => {}}>
+        <Button
+          onClick={() => {
+            const newNote = createNote({
+              chaper: 1,
+              categories: ['test'],
+              chapterName: 'text c',
+              content: html,
+            });
+            console.log(newNote);
+            addNote(newNote);
+          }}
+        >
           <IoSendOutline size={22} color={theme.palette.text.primary} />
         </Button>
       </Flexbox>

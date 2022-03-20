@@ -1,3 +1,5 @@
+import parse from 'html-react-parser';
+
 import { Card, Flexbox, Text } from './lib/core';
 import { Navbar } from './Components';
 import { useTheme } from './lib/core/hooks/useTheme';
@@ -25,6 +27,7 @@ import {
 import './style.scss';
 import { withTheme } from './lib/core/middlewares/withTheme';
 import { WriteNodeEditor } from './Components/WriteNodeEditor';
+import { useNotes } from './core/contexts/NotesContext';
 
 const StyledButton = styled.button`
   padding: 5px;
@@ -45,6 +48,8 @@ export default () => {
   const { screen } = useBreakPoints();
   const { switchMode, theme } = useTheme();
 
+  const { notes, addNote } = useNotes();
+
   const [html, setHtml] = useState("<div contenteditable='false'></div>");
   return (
     <>
@@ -57,100 +62,33 @@ export default () => {
           <Text variant="body2" style={{ margin: 0 }}>
             Screen Device: {screen}
           </Text>
-
           <button onClick={() => switchMode()}>Switch: {theme.palette.mode === 'dark' ? 'light' : 'dark'}</button>
         </Navbar>
         <br />
         <Container style={{ padding: '1rem' }}>
           <WriteNodeEditor />
           <br />
-          <Card
-            borderColor="divider"
-            variant="outlined"
-            className={theme => `
-          &:hover {
-            border-color: ${theme.palette.primary.main};
-          }
-        `}
-          >
-            <Text variant="body2">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis tristique turpis. Nulla elementum
-              feugiat gravida. Nullam quis ultrices nibh. Suspendisse ornare porta neque nec pretium. Cras efficitur,
-              turpis quis interdum viverra, neque erat ullamcorper metus, non varius velit sapien sit amet neque. In hac
-              habitasse platea dictumst. Morbi lacinia, turpis sit amet interdum tempor, orci neque accumsan ante, sit
-              amet mollis lacus ipsum eu sapien. Cras egestas erat dignissim, dapibus quam eu, laoreet nibh. Nulla quis
-              aliquet felis, sit amet blandit tellus. Nullam vitae dapibus est, vel luctus erat. Interdum et malesuada
-              fames ac ante ipsum primis in faucibus. Proin in sem sit amet ligula aliquam ultricies. Vivamus
-              pellentesque consequat elit, quis suscipit diam fermentum eu. Pellentesque ut nisl sagittis, luctus nulla
-              ac, accumsan enim. Morbi a suscipit elit. Donec maximus interdum est at volutpat. Ut ipsum lacus,
-              condimentum vel mattis quis, hendrerit sed ante. Etiam varius venenatis sapien quis maximus. Suspendisse
-              accumsan lacus dui, id pharetra eros commodo a. Vivamus condimentum pulvinar felis nec aliquet. Aenean
-              facilisis mi arcu, in pharetra diam pharetra vel. Vestibulum neque justo, tempus vel blandit vitae,
-              blandit eu neque. In placerat lectus sit amet lacus lacinia, quis vehicula nisl finibus. Morbi eu auctor
-              neque, in dignissim sapien. Nam suscipit nisi id lectus aliquet, sed ultrices sapien bibendum. Aenean
-              dignissim consequat tempus. Nunc ut mattis nibh. Pellentesque condimentum, est non molestie molestie,
-              ipsum arcu efficitur dui, non dignissim nisi tortor sed augue. Quisque egestas neque lectus, at posuere
-              augue elementum ac. Quisque in aliquet libero. Nam vehicula, lectus eget molestie facilisis, nisl libero
-              varius mi, sed faucibus turpis odio sed arcu. Mauris elementum tristique arcu ut pharetra. Etiam ultrices
-              ante at lacus consequat, id suscipit tortor mattis. Phasellus in malesuada sapien, euismod faucibus erat.
-              In id porttitor magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris faucibus tempor
-              erat ut varius. In vehicula diam ipsum, eu dapibus mi porttitor et. Duis faucibus ipsum eros, semper
-              fringilla dui tempor quis. Nam ac mattis nulla. Etiam sagittis consectetur lacus gravida mattis. Ut
-              tincidunt volutpat massa ut tincidunt. Cras massa ex, condimentum a aliquet nec, sodales sed justo. Duis
-              nunc mauris, pulvinar et vehicula eget, condimentum sed mi. Aliquam erat volutpat. Quisque dapibus rutrum
-              volutpat. Nullam sit amet commodo sapien, semper placerat nulla. Nullam maximus justo sapien, in finibus
-              tortor blandit eget. Maecenas vestibulum libero ac consectetur commodo. Donec quis turpis vehicula, tempor
-              nibh vel, malesuada ex. Cras sed ante in est luctus semper. In ac pellentesque eros. Proin commodo mi quis
-              congue pretium. Sed turpis lacus, fringilla id efficitur in, facilisis at ipsum. Sed mattis nisl sed ante
-              faucibus efficitur. Praesent auctor nunc lectus, sit amet placerat neque venenatis ac. Fusce sagittis
-              metus odio, ut gravida felis tincidunt sed. Nunc pharetra lectus sed lectus gravida, at cursus nulla
-              mattis.
-            </Text>
-          </Card>
-          <br />
-          <Card
-            borderColor="divider"
-            variant="outlined"
-            className={theme => `
-          &:hover {
-            border-color: ${theme.palette.primary.main};
-          }
-        `}
-          >
-            <Text variant="body2">
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla quis tristique turpis. Nulla elementum
-              feugiat gravida. Nullam quis ultrices nibh. Suspendisse ornare porta neque nec pretium. Cras efficitur,
-              turpis quis interdum viverra, neque erat ullamcorper metus, non varius velit sapien sit amet neque. In hac
-              habitasse platea dictumst. Morbi lacinia, turpis sit amet interdum tempor, orci neque accumsan ante, sit
-              amet mollis lacus ipsum eu sapien. Cras egestas erat dignissim, dapibus quam eu, laoreet nibh. Nulla quis
-              aliquet felis, sit amet blandit tellus. Nullam vitae dapibus est, vel luctus erat. Interdum et malesuada
-              fames ac ante ipsum primis in faucibus. Proin in sem sit amet ligula aliquam ultricies. Vivamus
-              pellentesque consequat elit, quis suscipit diam fermentum eu. Pellentesque ut nisl sagittis, luctus nulla
-              ac, accumsan enim. Morbi a suscipit elit. Donec maximus interdum est at volutpat. Ut ipsum lacus,
-              condimentum vel mattis quis, hendrerit sed ante. Etiam varius venenatis sapien quis maximus. Suspendisse
-              accumsan lacus dui, id pharetra eros commodo a. Vivamus condimentum pulvinar felis nec aliquet. Aenean
-              facilisis mi arcu, in pharetra diam pharetra vel. Vestibulum neque justo, tempus vel blandit vitae,
-              blandit eu neque. In placerat lectus sit amet lacus lacinia, quis vehicula nisl finibus. Morbi eu auctor
-              neque, in dignissim sapien. Nam suscipit nisi id lectus aliquet, sed ultrices sapien bibendum. Aenean
-              dignissim consequat tempus. Nunc ut mattis nibh. Pellentesque condimentum, est non molestie molestie,
-              ipsum arcu efficitur dui, non dignissim nisi tortor sed augue. Quisque egestas neque lectus, at posuere
-              augue elementum ac. Quisque in aliquet libero. Nam vehicula, lectus eget molestie facilisis, nisl libero
-              varius mi, sed faucibus turpis odio sed arcu. Mauris elementum tristique arcu ut pharetra. Etiam ultrices
-              ante at lacus consequat, id suscipit tortor mattis. Phasellus in malesuada sapien, euismod faucibus erat.
-              In id porttitor magna. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris faucibus tempor
-              erat ut varius. In vehicula diam ipsum, eu dapibus mi porttitor et. Duis faucibus ipsum eros, semper
-              fringilla dui tempor quis. Nam ac mattis nulla. Etiam sagittis consectetur lacus gravida mattis. Ut
-              tincidunt volutpat massa ut tincidunt. Cras massa ex, condimentum a aliquet nec, sodales sed justo. Duis
-              nunc mauris, pulvinar et vehicula eget, condimentum sed mi. Aliquam erat volutpat. Quisque dapibus rutrum
-              volutpat. Nullam sit amet commodo sapien, semper placerat nulla. Nullam maximus justo sapien, in finibus
-              tortor blandit eget. Maecenas vestibulum libero ac consectetur commodo. Donec quis turpis vehicula, tempor
-              nibh vel, malesuada ex. Cras sed ante in est luctus semper. In ac pellentesque eros. Proin commodo mi quis
-              congue pretium. Sed turpis lacus, fringilla id efficitur in, facilisis at ipsum. Sed mattis nisl sed ante
-              faucibus efficitur. Praesent auctor nunc lectus, sit amet placerat neque venenatis ac. Fusce sagittis
-              metus odio, ut gravida felis tincidunt sed. Nunc pharetra lectus sed lectus gravida, at cursus nulla
-              mattis.
-            </Text>
-          </Card>
+
+          {notes.map((note, i) => {
+            return (
+              <Card
+                key={i}
+                borderColor="divider"
+                variant="outlined"
+                className={theme => `
+                  margin-bottom: 1rem;
+                  & img {
+                    width : 100%;
+                  }
+                  &:hover {
+                    border-color: ${theme.palette.primary.main};
+                  }
+                `}
+              >
+                {parse(note.content)}
+              </Card>
+            );
+          })}
         </Container>
       </Card>
     </>

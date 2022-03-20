@@ -9,8 +9,13 @@ module.exports = (env, { mode }) => {
       filename: isProd ? '[name].[contenthash].js' : 'main.js',
       path: path.resolve(__dirname, 'build'),
     },
+    resolve: {
+      // Add '.ts' and '.tsx' as resolvable extensions.
+      extensions: ['', '.webpack.js', '.web.js', '.ts', '.tsx', '.js'],
+    },
     module: {
       rules: [
+        { test: /\.tsx?$/, loader: 'ts-loader' },
         {
           test: /\.js?$/,
           exclude: /node_modules/,
