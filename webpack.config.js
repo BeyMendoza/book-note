@@ -6,7 +6,8 @@ module.exports = (env, { mode }) => {
   return {
     entry: path.join(__dirname, 'src', 'index.js'),
     output: {
-      filename: isProd ? '[name].[contenthash].js' : 'main.js',
+      filename: '[name].[contenthash].js',
+      publicPath: '/',
       path: path.resolve(__dirname, 'build'),
     },
     resolve: {
