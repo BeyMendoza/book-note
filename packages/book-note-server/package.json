@@ -1,18 +1,14 @@
 {
-  "name": "book-note",
+  "name": "book-note-server",
   "version": "1.0.0",
-  "private": true,
-  "description": "",
-  "workspaces": [
-    "packages/book-note-ui",
-    "packages/book-note-server",
-    "packages/book-ui-library"
-  ],
+  "description": "Applicacion para guardar, clasificar y acceder facilmente a las notas importantes de mis lecturas.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "webpack serve --mode=development",
+    "build": "webpack --mode=development",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
-  "keywords": [],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/BeyMendoza/book-note.git"
@@ -30,5 +26,8 @@
     "url": "https://github.com/BeyMendoza/book-note/issues"
   },
   "homepage": "https://github.com/BeyMendoza/book-note#readme",
-  "devDependencies": {}
+  "dependencies": {
+    "lodash": "^4.17.21",
+    "moment": "^2.29.1"
+  }
 }
