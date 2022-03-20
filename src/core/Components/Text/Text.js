@@ -2,13 +2,18 @@ import _ from 'lodash';
 import React from 'react';
 import styled from '@emotion/styled';
 import { withTheme } from '../../utils/withTheme';
+import { useDynamicStyled } from './../../hooks/useDynamicStyled';
 
 export const Text = withTheme(({ children, variant = 'h5', theme, ...props }) => {
+  const styled = useDynamicStyled({ ...props, theme });
+
   const Typography = TextVariants[variant];
   const color = _.get(theme.palette, _.get(props, 'color', 'text.primary'), theme.palette.text.primary);
   return (
     <TypographyContainer color={color}>
-      <Typography {...props}>{children}</Typography>
+      <Typography {...props} {...styled}>
+        {children}
+      </Typography>
     </TypographyContainer>
   );
 });

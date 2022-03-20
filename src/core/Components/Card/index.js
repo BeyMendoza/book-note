@@ -1,6 +1,6 @@
 import styled from '@emotion/styled';
-
 import { withTheme } from '../../utils/withTheme';
+import { useDynamicStyled } from '../../hooks/useDynamicStyled';
 
 const StyledCard = styled.div`
   padding: 1rem;
@@ -11,15 +11,13 @@ const StyledCard = styled.div`
     props.variant === 'outlined' ? (props.borderColor ? props.borderColor : props.theme.palette.divider) : 'unset'};
 `;
 
-// Props are passed manually for be explicit to show u how this works.
-
 export const Card = withTheme(({ children, variant = 'normal', theme, ...props }) => {
-  const color = _.get(theme.palette, _.get(props, 'color', 'divider'));
+  const styled = useDynamicStyled({ ...props, theme });
   const bg = _.get(theme.palette, _.get(props, 'bg', 'background.paper'));
+  const color = _.get(theme.palette, _.get(props, 'borderColor', 'divider'));
 
-  console.log(variant);
   return (
-    <StyledCard {...props} theme={theme} borderColor={color} variant={variant} bg={bg}>
+    <StyledCard {...props} {...styled} bg={bg} theme={theme} variant={variant} borderColor={color}>
       {children}
     </StyledCard>
   );

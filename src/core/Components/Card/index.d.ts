@@ -1,13 +1,13 @@
 import React from 'react';
-import { Color } from '../../theme';
+import { ClassThemeCallback, Color, StyleThemeCallback } from '../../theme';
 
 interface CardProps {
   bg?: Color;
   borderColor?: Color;
-  className?: string;
   children?: React.ReactNode;
-  style?: React.CSSProperties;
   variant: 'outlined' | 'normal';
+  className?: string | ClassThemeCallback;
+  style?: React.CSSProperties | StyleThemeCallback;
 }
 
 export function Card(props: CardProps): JSX.Element;

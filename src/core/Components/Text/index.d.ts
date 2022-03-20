@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { Color } from '../../theme';
+import { ClassThemeCallback, Color, StyleThemeCallback } from '../../theme';
 
 export type TextVariant =
   | 'body1'
@@ -19,10 +19,10 @@ export type TextVariant =
 
 interface TextProps {
   color: Color;
-  className?: string;
   variant: TextVariant;
   children?: ReactNode;
-  style?: React.CSSProperties;
+  className?: string | ClassThemeCallback;
+  style?: React.CSSProperties | StyleThemeCallback;
 }
 
 export function Text(props: TextProps): JSX.Element;
