@@ -3,6 +3,7 @@ import { withTheme } from '../../middlewares/withTheme';
 import { useDynamicStyled } from '../../hooks/useDynamicStyled';
 
 const StyledCard = styled.div`
+  box-sizing: border-box;
   padding: 1rem;
   border-radius: ${props => (props.theme.screen === 'xs' ? '0px' : '6px')};
   border: ${props => (props.variant === 'outlined' ? '1px solid' : 'unset')};
