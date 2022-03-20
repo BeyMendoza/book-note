@@ -1,45 +1,42 @@
-import { Card, Flexbox, Text } from '../../lib/core';
-import { Button } from '../../lib/core/Components/Button';
+import { Card, Text, Flexbox, Button } from '../../lib/core';
 import { withRouter } from '../../lib/core/middlewares/withRouter';
 
-const chapters = [
+const books = [
   {
     id: 1,
-    name: 'Storybook testing',
+    isbn: '',
+    name: 'React Native For Dummies',
   },
   {
     id: 2,
-    name: 'Test-Driven Dev',
-  },
-  {
-    id: 3,
-    name: 'Webpack',
+    isbn: '',
+    name: 'Microservices Patterns',
   },
 ];
 
-const BookChapters = ({ navigate, location, ...props }) => {
+const WorkSpace = ({ navigate, location, ...props }) => {
   return (
     <div>
       <Text variant="subtitle1" style={{ margin: 0 }}>
-        Book Chapters
+        My Books
       </Text>
       <br />
-      {chapters.map((chapter, key) => {
+      {books.map((book, key) => {
         return (
           <Card key={key} style={{ marginBottom: '1rem' }}>
             <Flexbox justifyContent="space-between" alignItems="center">
               <div>
                 <Text variant="h6" style={{ margin: 0 }}>
-                  {chapter.name}
+                  {book.name}
                 </Text>
                 <Text variant="body1" color="text.disabled" style={{ margin: 0 }}>
-                  {chapter.name}
+                  {book.name}
                 </Text>
               </div>
               <Button
                 variant="text"
                 onClick={() => {
-                  navigate(`${location.pathname}/chapter/${chapter.id}`);
+                  navigate(`/book/${book.id}`);
                 }}
               >
                 Check
@@ -52,4 +49,4 @@ const BookChapters = ({ navigate, location, ...props }) => {
   );
 };
 
-export default withRouter(BookChapters);
+export default withRouter(WorkSpace);
