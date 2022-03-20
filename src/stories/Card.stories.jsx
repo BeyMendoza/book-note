@@ -1,6 +1,5 @@
 import _ from 'lodash';
-import { Card } from '../lib/core';
-import { ThemeProvider } from '../lib/core/theme';
+import { Card, ThemeProvider } from '../lib/core';
 
 export default {
   title: 'Example/Card',

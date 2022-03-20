@@ -13,6 +13,9 @@ module.exports = (env, { mode }) => {
     resolve: {
       // Add '.ts' and '.tsx' as resolvable extensions.
       extensions: ['', '.webpack.js', '.web.js', '.ts', '.tsx', '.js'],
+      alias: {
+        '@Library': path.resolve(__dirname, 'src/lib'),
+      },
     },
     module: {
       rules: [

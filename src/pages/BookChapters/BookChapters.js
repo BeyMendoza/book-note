@@ -1,6 +1,4 @@
-import { Card, Flexbox, Text } from '../../lib/core';
-import { Button } from '../../lib/core/Components/Button';
-import { withRouter } from '../../lib/core/middlewares/withRouter';
+import { Card, Flexbox, Text, Button, withRouter } from '@Library/core';
 
 const chapters = [
   {

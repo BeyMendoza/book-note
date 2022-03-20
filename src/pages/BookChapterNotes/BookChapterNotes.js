@@ -1,9 +1,7 @@
-import React from 'react';
-
+import { withRouter } from '@Library/core';
 import { NoteCard } from '../../Components/NoteCard';
 import { useNotes } from '../../core/contexts/NotesContext';
 import { WriteNodeEditor } from '../../Components/WriteNodeEditor';
-import { withRouter } from '../../lib/core/middlewares/withRouter';
 
 const BookChapterNotes = props => {
   const { notes } = useNotes();

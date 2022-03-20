@@ -1,2 +1,2 @@
-import { withSuspense } from '../../lib/core/middlewares/withSuspense';
+import { withSuspense } from '@Library/core';
 export default withSuspense({})(() => import('./WorkSpace'));

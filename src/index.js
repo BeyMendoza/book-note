@@ -1,7 +1,6 @@
 import App from './App';
 import ReactDOM from 'react-dom';
-import { ThemeProvider } from './lib/core/theme';
-import { BreakPointsProvider } from './lib/core/Breakpoints/Provider';
+import { ThemeProvider, BreakPointsProvider } from '@Library/core';
 import { NotesContextProvider } from './core/contexts/NotesContext';
 
 ReactDOM.render(

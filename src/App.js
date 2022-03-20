@@ -1,5 +1,5 @@
 import Home from './pages/Home';
-import { Card } from './lib/core';
+import { Card } from '@Library/core';
 import { PAGE_ROUTES } from './pages';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './style.scss';

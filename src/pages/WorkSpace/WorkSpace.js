@@ -1,5 +1,4 @@
-import { Card, Text, Flexbox, Button } from '../../lib/core';
-import { withRouter } from '../../lib/core/middlewares/withRouter';
+import { Card, Text, Flexbox, Button, withRouter } from '@Library/core';
 
 const books = [
   {

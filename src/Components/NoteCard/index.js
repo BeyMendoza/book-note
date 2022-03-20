@@ -3,7 +3,7 @@ import moment from 'moment';
 import { Avatar } from '../Avatar';
 import parse from 'html-react-parser';
 import { IconButton } from '../IconButton';
-import { Card, Flexbox, Text } from '../../lib/core';
+import { Card, Flexbox, Text } from '@Library/core';
 import { IoEllipseSharp, IoEllipsisVertical, IoBookmarkOutline } from 'react-icons/io5';
 
 export const NoteCard = ({ note, ...props }) => {
