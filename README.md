@@ -3,6 +3,7 @@
 Applicacion para guardar, clasificar y acceder facilmente a las notas importantes de mis lecturas.
 
 ![Preview](./preview.png)
+![Preview](./preview.gif)
 
 ## Colaboration
 
