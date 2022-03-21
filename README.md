@@ -75,7 +75,25 @@ I want search a note.
 
 ### FrontEnd
 
-- [ ] Create Routes Structure
-- [ ] Create Component for creating note.
-- [ ] Create Note Card
+- [x] Create Component for creating note.
+- [x] Create Note Card
 - [ ] Create Searcher Component
+- [x] Create Routes Structure
+- [x] Create Notes Page
+- [x] Create Chapters Page
+- [x] Create WorkSpace Page
+- [ ] Server Integration
+
+
+### Backend
+
+- [ ] Use Express
+- [ ] Talk if is better to use no relational vs relational.
+- [ ] Provide pattern for switch easely between no relational vs relational.
+- [ ] Use Hexagonal Architecture Style
+- [ ] Define Controllers
+- [ ] Create Note use case
+- [ ] List Notes use case
+- [ ] Update Note use case
+- [ ] Create Book use case
+- [ ] Create Chapter use case
